@@ -13,6 +13,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   characters = [];
   subscription: Subscription;
   form: FormGroup;
+  open = false;
 
   constructor(
     private characterService: CharacterService,
@@ -105,5 +106,9 @@ export class CharacterListComponent implements OnInit, OnDestroy {
 
   get ac() {
     return this.form.get('ac');
+  }
+
+  handleOpen() {
+    this.open = !this.open;
   }
 }
