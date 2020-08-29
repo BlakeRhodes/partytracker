@@ -6,23 +6,23 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class CharacterService {
-  private behaviorSubject: BehaviorSubject<Character[]> = new BehaviorSubject<Character[]>([]);
-  private characters: Character[] = [];
+  private behaviorSubject = new BehaviorSubject<Map<number, Character>>(new Map());
+  private characters: Map<number, Character> = new Map();
 
   constructor() {
   }
 
-  getCharacters(): BehaviorSubject<Character[]> {
+  getCharacters(): BehaviorSubject<Map<number, Character>> {
     return this.behaviorSubject;
   }
 
-  add(character: Character) {
-    this.characters.push(character);
+  add(index: number, character: Character) {
+    this.characters.set(index, character);
     this.behaviorSubject.next(this.characters);
   }
 
   remove(i: number) {
-    this.characters.splice(i, 1);
+    this.characters.delete(i);
     this.behaviorSubject.next(this.characters);
   }
 }

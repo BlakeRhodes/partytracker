@@ -17,6 +17,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   form: FormGroup;
   open = false;
+  idCounter = 0;
 
   constructor(
     private characterService: CharacterService,
@@ -26,7 +27,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.characterService.getCharacters().subscribe(values => this.characters = values);
+    this.subscription = this.characterService.getCharacters().subscribe(characters => this.characters = Array.from(characters.values()));
     this.form = this.formBuilder.group({
       name: [],
       insight: [],
@@ -43,8 +44,8 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   handleClick() {
-
     this.characterService.add(
+      this.idCounter,
       new Character({
         name: this.name.value,
         insight: this.insight.value + 10,
@@ -57,8 +58,10 @@ export class CharacterListComponent implements OnInit, OnDestroy {
         wis: this.wis.value,
         cha: this.cha.value,
         ac: this.ac.value,
+        id: this.idCounter
       })
     );
+    this.idCounter++;
     this.openSnackBar(this.name.value);
   }
 

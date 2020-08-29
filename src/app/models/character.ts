@@ -10,6 +10,7 @@ export class Character {
   wis: number;
   cha: number;
   ac: number;
+  id: number;
 
   public constructor(init?: Partial<Character>) {
     Object.assign(this, init);
