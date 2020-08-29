@@ -18,6 +18,7 @@ import {MatInputModule} from '@angular/material/input';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CharacterService} from './services/character.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         ReactiveFormsModule,
         MatInputModule,
         DragDropModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatSnackBarModule,
     ],
   providers: [CharacterService],
   bootstrap: [AppComponent]

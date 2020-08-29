@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {buildCharacter, Character} from '../models/character';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {SNACKBAR_CONFIG} from '../constants';
+import {emojiName} from '../functions';
 
 @Component({
   selector: 'app-character-card',
@@ -12,13 +15,23 @@ export class CharacterCardComponent implements OnInit {
   @Output() closed: EventEmitter<null> = new EventEmitter<null>();
   @Output() dropped: EventEmitter<CdkDragDrop<any>> = new EventEmitter<CdkDragDrop<any>>();
 
-  constructor() {
+  constructor(
+    private snackBar: MatSnackBar,
+  ) {
   }
 
   ngOnInit(): void {
   }
 
   handleClick() {
+    this.snackBar.open(
+      emojiName(
+        this.character.name,
+        'has left the party!'
+      ),
+      'HAIL!',
+      SNACKBAR_CONFIG
+    );
     this.closed.emit();
   }
 

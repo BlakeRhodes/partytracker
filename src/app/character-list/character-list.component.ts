@@ -3,6 +3,9 @@ import {Character} from '../models/character';
 import {CharacterService} from '../services/character.service';
 import {Subscription} from 'rxjs';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {SNACKBAR_CONFIG, SNACKBAR_TIME} from '../constants';
+import {emojiName} from '../functions';
 
 @Component({
   selector: 'app-character-list',
@@ -18,6 +21,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   constructor(
     private characterService: CharacterService,
     private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar,
   ) {
   }
 
@@ -39,6 +43,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   handleClick() {
+
     this.characterService.add(
       new Character({
         name: this.name.value,
@@ -54,6 +59,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
         ac: this.ac.value,
       })
     );
+    this.openSnackBar(this.name.value);
   }
 
   ngOnDestroy(): void {
@@ -107,8 +113,13 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   get ac() {
     return this.form.get('ac');
   }
-
-  handleOpen() {
-    this.open = !this.open;
+  openSnackBar(name: string) {
+    this.snackBar.open(
+      emojiName(
+        this.name.value,
+        'joined the party!'
+      ),
+      'HAIL!',
+      SNACKBAR_CONFIG);
   }
 }
