@@ -48,9 +48,9 @@ export class CharacterListComponent implements OnInit, OnDestroy {
       this.idCounter,
       new Character({
         name: this.name.value,
-        insight: this.insight.value + 10,
-        perception: this.perception.value + 10,
-        investigation: this.investigation.value + 10,
+        insight: +this.insight.value + 10,
+        perception: +this.perception.value + 10,
+        investigation: +this.investigation.value + 10,
         str: this.str.value,
         dex: this.dex.value,
         con: this.con.value,
