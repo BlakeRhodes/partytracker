@@ -1,7 +1,13 @@
-<mat-card>
+<mat-card cdkDrag>
   <mat-card-content>
     <div class="header__name" name>{{character.name}}</div>
     <div ac>AC: {{character.ac}}</div>
+    <div class="close-button">
+      <button mat-mini-fab (click)="handleClick()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+
   </mat-card-content>
 
   <mat-card-content class="stats">
@@ -11,14 +17,14 @@
       <div insight>Insight: {{character.insight}}</div>
     </div>
     <div class="stats__column">
-      <div str>STR: +{{character.str}}</div>
-      <div dex>DEX: +{{character.dex}}</div>
-      <div con>CON: +{{character.con}}</div>
+      <div str>STR: {{formatBonus(character.str)}}</div>
+      <div dex>DEX: {{formatBonus(character.dex)}}</div>
+      <div con>CON: {{formatBonus(character.con)}}</div>
     </div>
     <div class="stats__column">
-      <div int>INT: +{{character.int}}</div>
-      <div wis>WIS: +{{character.wis}}</div>
-      <div cha>CHA: +{{character.cha}}</div>
+      <div int>INT: {{formatBonus(character.int)}}</div>
+      <div wis>WIS: {{formatBonus(character.wis)}}</div>
+      <div cha>CHA: {{formatBonus(character.cha)}}</div>
     </div>
   </mat-card-content>
 </mat-card>

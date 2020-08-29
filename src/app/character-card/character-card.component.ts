@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {buildCharacter, Character} from '../models/character';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+
 @Component({
   selector: 'app-character-card',
   templateUrl: './character-card.component.html',
@@ -7,6 +9,8 @@ import {buildCharacter, Character} from '../models/character';
 })
 export class CharacterCardComponent implements OnInit {
   @Input() character: Character = buildCharacter();
+  @Output() closed: EventEmitter<null> = new EventEmitter<null>();
+  @Output() dropped: EventEmitter<CdkDragDrop<any>> = new EventEmitter<CdkDragDrop<any>>();
 
   constructor() {
   }
@@ -14,4 +18,12 @@ export class CharacterCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleClick() {
+    this.closed.emit();
+  }
+
+  formatBonus(value: number): string {
+    const bonus = value === null ? 0 : value;
+    return `${value < 0 ? value : '+' + bonus}`;
+  }
 }

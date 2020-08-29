@@ -20,4 +20,9 @@ export class CharacterService {
     this.characters.push(character);
     this.behaviorSubject.next(this.characters);
   }
+
+  remove(i: number) {
+    this.characters.splice(i, 1);
+    this.behaviorSubject.next(this.characters);
+  }
 }
