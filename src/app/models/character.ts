@@ -1,6 +1,8 @@
 export class Character {
   name: string;
-  passiveInsight: number;
+  insight: number;
+  perception: number;
+  investigation: number;
   str: number;
   dex: number;
   con: number;
@@ -17,7 +19,9 @@ export class Character {
 export function buildCharacter() {
   return new Character({
       name: 'Frank',
-      passiveInsight: 20,
+      insight: 20,
+      perception: 20,
+      investigation: 20,
       str: 20,
       dex: 20,
       con: 20,

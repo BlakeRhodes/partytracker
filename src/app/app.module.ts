@@ -8,20 +8,26 @@ import { HeaderComponent } from './header/header.component';
 import {MatCardModule} from '@angular/material/card';
 import { CharacterCardComponent } from './character-card/character-card.component';
 import { CharacterListComponent } from './character-list/character-list.component';
+import { FooterComponent } from './footer/footer.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CharacterCardComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    FooterComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {buildCharacter, Character} from '../models/character';
 @Component({
   selector: 'app-character-card',
@@ -6,7 +6,7 @@ import {buildCharacter, Character} from '../models/character';
   styleUrls: ['./character-card.component.scss']
 })
 export class CharacterCardComponent implements OnInit {
-  character: Character = buildCharacter();
+  @Input() character: Character = buildCharacter();
 
   constructor() {
   }

@@ -36,8 +36,12 @@ describe('CharacterCardComponent', () => {
   [
     {property: 'name', expected: 'Frank', value: 'Frank'},
     {property: 'name', expected: 'Kitty', value: 'Kitty'},
-    {property: 'passiveInsight', expected: '1', value: 1},
-    {property: 'passiveInsight', expected: '2', value: 2},
+    {property: 'perception', expected: '1', value: 1},
+    {property: 'perception', expected: '2', value: 2},
+    {property: 'investigation', expected: '2', value: 2},
+    {property: 'investigation', expected: '2', value: 2},
+    {property: 'insight', expected: '2', value: 2},
+    {property: 'insight', expected: '2', value: 2},
     {property: 'str', expected: '2', value: 2},
     {property: 'str', expected: '1', value: 1},
     {property: 'dex', expected: '3', value: 3},
@@ -53,7 +57,7 @@ describe('CharacterCardComponent', () => {
     {property: 'ac', expected: '8', value: 8},
     {property: 'ac', expected: '7', value: 7},
   ].forEach(testCase => {
-    it(`should display ${testCase.property} of hero`, () => {
+    it(`should display ${testCase.property} of character`, () => {
       const testCharacter = buildCharacter();
       testCharacter[`${testCase.property}`] = testCase.value;
       component.character = testCharacter;

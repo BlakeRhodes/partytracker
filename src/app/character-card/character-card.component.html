@@ -4,10 +4,12 @@
     <div ac>AC: {{character.ac}}</div>
   </mat-card-content>
 
-  <mat-card-content passiveInsight>
-    Passive Insight: {{character.passiveInsight}}
-  </mat-card-content>
   <mat-card-content class="stats">
+    <div class="stats__column">
+      <div perception>Perception: {{character.perception}}</div>
+      <div investigation>Investigation: {{character.investigation}}</div>
+      <div insight>Insight: {{character.insight}}</div>
+    </div>
     <div class="stats__column">
       <div str>STR: +{{character.str}}</div>
       <div dex>DEX: +{{character.dex}}</div>

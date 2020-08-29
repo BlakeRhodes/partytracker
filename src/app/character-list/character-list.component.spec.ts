@@ -2,8 +2,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CharacterListComponent} from './character-list.component';
 import {By} from '@angular/platform-browser';
-import {CharacterCardComponent} from '../character-card/character-card.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {buildCharacter} from '../models/character';
 
 describe('CharacterListComponent', () => {
   let component: CharacterListComponent;
@@ -32,7 +32,12 @@ describe('CharacterListComponent', () => {
   });
 
   it('should have a card for each character', () => {
-    component.characters = [1, 1, 1, 1];
+    component.characters = [
+      buildCharacter(),
+      buildCharacter(),
+      buildCharacter(),
+      buildCharacter()
+    ];
     fixture.detectChanges();
 
     const result = fixture.debugElement.queryAll(By.css('app-character-card')).length;
