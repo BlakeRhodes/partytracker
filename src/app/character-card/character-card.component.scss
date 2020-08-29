@@ -1,0 +1,21 @@
+mat-card {
+  flex-direction: column;
+  display: inline-flex;
+  margin: 2rem;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+
+.stats {
+  display: flex;
+  flex-direction: row;
+}
+
+.stats__column, .header__name {
+  margin-right: 2rem;
+}

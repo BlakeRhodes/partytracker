@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-content>
+    <div class="header__name" name>{{character.name}}</div>
+    <div ac>AC: {{character.ac}}</div>
+  </mat-card-content>
+
+  <mat-card-content passiveInsight>
+    Passive Insight: {{character.passiveInsight}}
+  </mat-card-content>
+  <mat-card-content class="stats">
+    <div class="stats__column">
+      <div str>STR: +{{character.str}}</div>
+      <div dex>DEX: +{{character.dex}}</div>
+      <div con>CON: +{{character.con}}</div>
+    </div>
+    <div class="stats__column">
+      <div int>INT: +{{character.int}}</div>
+      <div wis>WIS: +{{character.wis}}</div>
+      <div cha>CHA: +{{character.cha}}</div>
+    </div>
+  </mat-card-content>
+</mat-card>
