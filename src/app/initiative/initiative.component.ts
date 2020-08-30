@@ -22,11 +22,10 @@ export class InitiativeComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.characters);
     this.characters.forEach(character => {
+      // TODO: why?
+      const value: number = (+character.inint + +InitiativeComponent.randomNumber(20));
       this.rolls.push(
-        new Roll({
-          name: character.name,
-          value: (character.inint + InitiativeComponent.randomNumber(20)),
-        })
+        new Roll(character.name, value)
       );
     });
     this.rolls.sort((a, b) => {
