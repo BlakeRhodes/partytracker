@@ -5,6 +5,7 @@ import {By} from '@angular/platform-browser';
 import {buildCharacter} from '../models/character';
 import {MatCardModule} from '@angular/material/card';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('CharacterCardComponent', () => {
   let component: CharacterCardComponent;
@@ -12,9 +13,15 @@ describe('CharacterCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatCardModule],
+      imports: [
+        MatCardModule,
+        MatSnackBarModule
+      ],
       declarations: [
         CharacterCardComponent
+      ],
+      providers: [
+        MatSnackBar
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA,

@@ -31,6 +31,7 @@ export function buildCharacter() {
       wis: 20,
       cha: 20,
       ac: 20,
+      id: 0,
     }
   );
 }

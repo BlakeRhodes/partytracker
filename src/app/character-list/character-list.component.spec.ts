@@ -4,6 +4,7 @@ import {CharacterListComponent} from './character-list.component';
 import {By} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {buildCharacter} from '../models/character';
+import {CharacterService} from '../services/character.service';
 
 describe('CharacterListComponent', () => {
   let component: CharacterListComponent;
@@ -44,5 +45,14 @@ describe('CharacterListComponent', () => {
 
     expect(result).toEqual(4);
 
+  });
+
+  it('should delete character when button is clicked', () => {
+    const spy = spyOn(TestBed.inject(CharacterService), 'remove');
+    component.characters = [buildCharacter()];
+
+    component.handleClosed(1);
+
+    expect(spy).toHaveBeenCalledWith(1);
   });
 });

@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InitiativeComponent } from './initiative.component';
+import {InitiativeComponent} from './initiative.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('InitiativeComponent', () => {
   let component: InitiativeComponent;
@@ -8,9 +9,10 @@ describe('InitiativeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InitiativeComponent ]
+      declarations: [InitiativeComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

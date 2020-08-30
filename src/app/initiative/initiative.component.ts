@@ -9,7 +9,7 @@ import {Roll} from '../models/roll';
 })
 export class InitiativeComponent implements OnInit {
   @Output() dismissed = new EventEmitter<void>();
-  @Input() characters: Character[];
+  @Input() characters: Character[] = [];
   rolls: Roll[] = [];
 
   private static randomNumber(max: number): number {
