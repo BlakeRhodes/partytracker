@@ -22,7 +22,7 @@ export class AddCharacterFormComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
     this.form = this.formBuilder.group({
       name: [],
       insight: ['0'],
