@@ -1,6 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CharacterService} from '../services/character.service';
 import {Observable, Subscription} from 'rxjs';
+import {safeLog} from '../functions';
 
 @Component({
   selector: 'app-character-list',
@@ -21,9 +22,11 @@ export class CharacterListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions.push(
-      this.characterService.getCharacters().subscribe(
-        characters => this.characters = Array.from(characters.values())
-      )
+      this.characterService.getCharacters()
+        .subscribe(characters => {
+          this.characters = Array.from(characters.values());
+          safeLog('what i got from the sub', this.characters);
+        })
     );
     this.subscriptions.push(
       this.rolledEvent.subscribe(() => this.showInitTracker = true));
@@ -35,6 +38,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   handleClosed(i: number) {
+    safeLog('Tried to delete', i);
     this.characterService.remove(i);
   }
 

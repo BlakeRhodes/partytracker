@@ -4,6 +4,7 @@ import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {SNACKBAR_CONFIG} from '../constants';
 import {emojiName} from '../functions';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-character-card',
@@ -14,6 +15,7 @@ export class CharacterCardComponent implements OnInit {
   @Input() character: Character = buildCharacter();
   @Output() closed: EventEmitter<null> = new EventEmitter<null>();
   @Output() dropped: EventEmitter<CdkDragDrop<any>> = new EventEmitter<CdkDragDrop<any>>();
+  debug = !environment.production;
 
   constructor(
     private snackBar: MatSnackBar,

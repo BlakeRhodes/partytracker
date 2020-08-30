@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Character} from '../models/character';
 import {BehaviorSubject} from 'rxjs';
+import {safeLog} from '../functions';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,12 @@ export class CharacterService {
   add(index: number, character: Character) {
     this.characters.set(index, character);
     this.behaviorSubject.next(this.characters);
+    safeLog('test', this.characters);
   }
 
   remove(i: number) {
     this.characters.delete(i);
     this.behaviorSubject.next(this.characters);
+    safeLog('test', this.characters);
   }
 }
