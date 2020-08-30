@@ -19,6 +19,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CharacterService} from './services/character.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AddCharacterFormComponent } from './add-character-form/add-character-form.component';
+import { SideNavToggleComponent } from './side-nav-toggle/side-nav-toggle.component';
+import { InitiativeComponent } from './initiative/initiative.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HeaderComponent,
     CharacterCardComponent,
     CharacterListComponent,
-    FooterComponent
+    FooterComponent,
+    AddCharacterFormComponent,
+    SideNavToggleComponent,
+    InitiativeComponent
   ],
     imports: [
         BrowserModule,

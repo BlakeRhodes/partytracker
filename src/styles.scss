@@ -1,7 +1,7 @@
 @import 'theme';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Monospaced, "Roboto", sans-serif; }
+body { margin: 0; font-family: Monospaced, "Roboto", sans-serif; background-color: black}
 
 $custom-typography: mat-typography-config(
   $font-family: 'monospace',
@@ -10,3 +10,9 @@ $custom-typography: mat-typography-config(
 );
 
 @include mat-core($custom-typography);
+
+
+.close-button{
+  margin-left: auto;
+}
+

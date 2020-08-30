@@ -1,0 +1,59 @@
+<div class="character-form" [formGroup]="form">
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>AC</mat-label>
+      <input matInput type="number" [formControl]="ac">
+    </mat-form-field>
+  <mat-form-field>
+      <mat-label>Ininitative</mat-label>
+      <input matInput type="number" [formControl]="inint">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Perception</mat-label>
+      <input matInput type="number" [formControl]="perception">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Insight</mat-label>
+      <input matInput type="number" [formControl]="insight">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Investigation</mat-label>
+      <input matInput type="number" [formControl]="investigation">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Str</mat-label>
+      <input matInput type="number" [formControl]="str">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Dex</mat-label>
+      <input matInput type="number" [formControl]="dex">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Con</mat-label>
+      <input matInput type="number" [formControl]="con">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Int</mat-label>
+      <input matInput type="number" [formControl]="int">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Wis</mat-label>
+      <input matInput type="number" [formControl]="wis">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cha</mat-label>
+      <input matInput type="number" [formControl]="cha">
+    </mat-form-field>
+  </div>
+  <button mat-flat-button color="primary" (click)="handleClick()">Add</button>
+</div>

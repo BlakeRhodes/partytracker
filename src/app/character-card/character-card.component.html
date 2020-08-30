@@ -1,7 +1,8 @@
 <mat-card cdkDrag>
   <mat-card-content>
-    <div class="header__name" name>{{character.name}}</div>
-    <div ac>AC: {{character.ac}}</div>
+    <div class="header--push-right" name>{{character.name}}</div>
+    <div ac class="header--push-right">AC: {{character.ac}}</div>
+    <div ac>Initiative: {{character.inint}}</div>
     <div class="close-button">
       <button mat-mini-fab (click)="handleClick()">
         <mat-icon>clear</mat-icon>

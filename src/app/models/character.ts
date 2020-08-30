@@ -11,6 +11,7 @@ export class Character {
   cha: number;
   ac: number;
   id: number;
+  inint: number;
 
   public constructor(init?: Partial<Character>) {
     Object.assign(this, init);

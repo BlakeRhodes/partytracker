@@ -1,7 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {CharacterService} from '../services/character.service';
-import {Character} from '../models/character';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +6,17 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Output() rolled = new EventEmitter();
 
   constructor(
   ) {
   }
 
   ngOnInit(): void {
+  }
+
+  handleClick() {
+    this.rolled.emit();
   }
 }
 

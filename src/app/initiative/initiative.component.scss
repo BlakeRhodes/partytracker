@@ -11,11 +11,10 @@ mat-card-content {
   align-items: baseline;
 }
 
-.stats {
-  display: flex;
-  flex-direction: row;
+.roll{
+  justify-content: space-between;
 }
 
-.stats__column, .header--push-right {
-  margin-right: 2rem;
+h3 {
+  margin-right: 1rem;
 }
