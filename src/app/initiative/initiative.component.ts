@@ -12,7 +12,7 @@ export class InitiativeComponent implements OnInit {
   @Input() characters: Character[];
   rolls: Roll[] = [];
 
-  private static randomNumber(max: number) {
+  private static randomNumber(max: number): number {
     return Math.floor(Math.random() * max) + 1;
   }
 
@@ -23,10 +23,10 @@ export class InitiativeComponent implements OnInit {
     console.log(this.characters);
     this.characters.forEach(character => {
       this.rolls.push(
-        {
+        new Roll({
           name: character.name,
-          value: character.inint + InitiativeComponent.randomNumber(20),
-        }
+          value: (character.inint + InitiativeComponent.randomNumber(20)),
+        })
       );
     });
     this.rolls.sort((a, b) => {
