@@ -16,6 +16,6 @@ $custom-typography: mat-typography-config(
   margin-left: auto;
 }
 
-.mat-mini-fab{
+ng::deep .mat-mini-fab{
   align-items: baseline !important;
 }
