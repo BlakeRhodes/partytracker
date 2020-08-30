@@ -29,7 +29,8 @@ export class CharacterListComponent implements OnInit, OnDestroy {
         })
     );
     this.subscriptions.push(
-      this.rolledEvent.subscribe(() => this.showInitTracker = true));
+      this.rolledEvent.subscribe(() => this.showInitTracker = true)
+    );
   }
 
 

@@ -8,9 +8,11 @@ import {safeLog} from '../functions';
 })
 export class CharacterService {
   private behaviorSubject = new BehaviorSubject<Map<number, Character>>(new Map());
-  private characters: Map<number, Character> = new Map();
+  private readonly characters: Map<number, Character>;
 
   constructor() {
+    this.characters = new Map(JSON.parse(localStorage.getItem('characters')));
+    this.behaviorSubject.next(this.characters);
   }
 
   getCharacters(): BehaviorSubject<Map<number, Character>> {
@@ -19,13 +21,19 @@ export class CharacterService {
 
   add(index: number, character: Character) {
     this.characters.set(index, character);
-    this.behaviorSubject.next(this.characters);
-    safeLog('test', this.characters);
+    this.update();
+    safeLog('add', this.characters);
   }
 
   remove(i: number) {
     this.characters.delete(i);
+    this.update();
+    safeLog('remove', this.characters);
+  }
+
+  private update() {
     this.behaviorSubject.next(this.characters);
-    safeLog('test', this.characters);
+    safeLog(JSON.stringify(this.characters));
+    localStorage.setItem('characters', JSON.stringify(Array.from(this.characters.entries())));
   }
 }
