@@ -11,7 +11,7 @@ export class CharacterService {
   private readonly characters: Map<number, Character>;
 
   constructor() {
-    this.characters = new Map(JSON.parse(localStorage.getItem('characters')));
+    this.characters = new Map(this.loadCharacters());
     this.behaviorSubject.next(this.characters);
   }
 
@@ -33,7 +33,15 @@ export class CharacterService {
 
   private update() {
     this.behaviorSubject.next(this.characters);
-    safeLog(JSON.stringify(this.characters));
-    localStorage.setItem('characters', JSON.stringify(Array.from(this.characters.entries())));
+    safeLog(this.stringifyMap(this.characters));
+    localStorage.setItem('characters', this.stringifyMap(this.characters));
+  }
+
+  private stringifyMap(map: Map<any, any>): string {
+    return JSON.stringify(Array.from(map.entries()));
+  }
+
+  private loadCharacters() {
+    return JSON.parse(localStorage.getItem('characters'));
   }
 }
