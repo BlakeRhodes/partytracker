@@ -14,8 +14,5 @@ $custom-typography: mat-typography-config(
 
 .close-button{
   margin-left: auto;
-}
-
-::ng-deep .mat-mini-fab{
-  align-items: baseline !important;
+  align-items: baseline;
 }
