@@ -1,6 +1,6 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CharacterService} from '../services/character.service';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {safeLog} from '../functions';
 
 @Component({
@@ -9,7 +9,6 @@ import {safeLog} from '../functions';
   styleUrls: ['./character-list.component.scss']
 })
 export class CharacterListComponent implements OnInit, OnDestroy {
-  @Input() rolledEvent = new Observable<void>();
   characters = [];
   subscriptions: Subscription[] = [];
   open = false;
@@ -28,9 +27,6 @@ export class CharacterListComponent implements OnInit, OnDestroy {
           safeLog('what i got from the sub', this.characters);
         })
     );
-    this.subscriptions.push(
-      this.rolledEvent.subscribe(() => this.showInitTracker = true)
-    );
   }
 
 
@@ -45,5 +41,9 @@ export class CharacterListComponent implements OnInit, OnDestroy {
 
   handleDismissed() {
     this.showInitTracker = false;
+  }
+
+  handleClick() {
+    this.showInitTracker = true;
   }
 }

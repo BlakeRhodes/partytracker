@@ -6,17 +6,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Output() rolled = new EventEmitter();
-
   constructor(
   ) {
   }
 
   ngOnInit(): void {
-  }
-
-  handleClick() {
-    this.rolled.emit();
   }
 }
 
