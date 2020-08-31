@@ -1,0 +1,11 @@
+<mat-drawer #drawer mode="side">
+  <div>
+    <button mat-mini-fab (click)="drawer.toggle()" *ngIf="drawer.opened">
+      <mat-icon>menu_open</mat-icon>
+    </button>
+  </div>
+  <app-save-form></app-save-form>
+</mat-drawer>
+<button mat-mini-fab (click)="drawer.toggle()" *ngIf="!drawer.opened">
+  <mat-icon>save</mat-icon>
+</button>

@@ -22,6 +22,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AddCharacterFormComponent } from './add-character-form/add-character-form.component';
 import { SideNavToggleComponent } from './side-nav-toggle/side-nav-toggle.component';
 import { InitiativeComponent } from './initiative/initiative.component';
+import { SaveSideNavComponent } from './save-side-nav/save-side-nav.component';
+import { SaveFormComponent } from './save-form/save-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InitiativeComponent } from './initiative/initiative.component';
     FooterComponent,
     AddCharacterFormComponent,
     SideNavToggleComponent,
-    InitiativeComponent
+    InitiativeComponent,
+    SaveSideNavComponent,
+    SaveFormComponent
   ],
     imports: [
         BrowserModule,

@@ -43,7 +43,11 @@ export class CharacterListComponent implements OnInit, OnDestroy {
     this.showInitTracker = false;
   }
 
-  handleClick() {
-    this.showInitTracker = true;
+  handleRoll() {
+    this.showInitTracker = !this.showInitTracker;
+  }
+
+  handleSave() {
+
   }
 }
